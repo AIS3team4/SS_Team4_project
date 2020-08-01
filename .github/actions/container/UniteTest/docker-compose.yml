@@ -8,8 +8,8 @@ services:
             - PATH=/bin:/usr/bin/
             - CHECKER=/github/workspace/checker
         volumes:
-            - '/home/runner/work/testWebServer/testWebServer:/github/workspace'
-            - '/home/runner/work/testWebServer/testWebServer/.github/actions/container/UniteTest/:/github/workspace/checker'
+            - '/home/runner/work/SS_Team4_project/SS_Team4_project:/github/workspace'
+            - '/home/runner/work/SS_Team4_project/SS_Team4_project/.github/actions/container/UniteTest/:/github/workspace/checker'
         entrypoint:
             - 'bash'
             - 'checker/UniteTest.sh'
