@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: flawfinder-action
+      uses: deep5050/flawfinder-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN}}
+    - name: filter
+      run: |
+        python3 .github/actions/scripts/check_risk.py
+    - name: dockerCompose
+      run: |
+        docker-compose -f .github/actions/container/UniteTest/docker-compose.yml up --build --exit-code-from dockeremu

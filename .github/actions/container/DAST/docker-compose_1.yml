@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+    zap:
+        build: ./zap
+        container_name: zap
+        working_dir: /zap
+        environment:
+            - PATH=/bin:/usr/bin/
+            - CHECKER=/zap/checker
+        volumes:
+            - '/home/runner/work/testWebServer/testWebServer/.github/actions/container/DAST/zap/:/zap/checker'
+            - '/home/runner/work/testWebServer/testWebServer:/github/workspace'
+        entrypoint:
+            - 'bash'
+            - '/zap/checker/Start_1.sh'
+        extra_hosts:
+            - "localhost:127.0.0.1"
+

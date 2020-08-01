@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+    zap:
+        depends_on:
+            - web
+        build: ./zap
+        container_name: zap
+        working_dir: /zap
+        links:
+            - 'web:web'
+        environment:
+            - PATH=/bin:/usr/bin/
+            - CHECKER=/zap/checker
+        volumes:
+            - '/home/runner/work/testWebServer/testWebServer/.github/actions/container/DAST/zap/:/zap/checker'
+        entrypoint:
+            - 'bash'
+            - '/zap/checker/Start.sh'
+    web:
+        build: ./project
+        container_name: web
+        working_dir: /github/workspace
+        environment:
+            - PATH=/bin:/usr/bin/
+            - CHECKER=/github/workspace/checker
+            - PORT=800000
+        volumes:
+            - '/home/runner/work/testWebServer/testWebServer:/github/workspace'
+            - '/home/runner/work/testWebServer/testWebServer/.github/actions/container/DAST/project/:/github/workspace/checker'
+        entrypoint:
+            - 'bash'
+            - '/github/workspace/checker/Start.sh'
