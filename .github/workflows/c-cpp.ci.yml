@@ -18,6 +18,6 @@ jobs:
     - name: filter
       run: |
         python3 .github/actions/scripts/check_risk.py
-    - name: dockerCompose
+    - name: UniteTest
       run: |
         docker-compose -f .github/actions/container/UniteTest/docker-compose.yml up --build --exit-code-from dockeremu
