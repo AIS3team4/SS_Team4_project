@@ -1,4 +1,4 @@
-name: che's c/c++ CD
+name: c/c++ CD
 
 on:
   push:
