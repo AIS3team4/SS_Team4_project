@@ -42,7 +42,7 @@ struct http_response{
         char* data;
 };
 
-static const char* resp_header[3]={"HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\nServer: 1.0\r\n\r\n","HTTP/1.1 200 OK\r\nContent-Type: image/jpeg\r\n\r\n","HTTP/1.1 404 Not Found\r\nContent-Type: image/jpeg\r\n\r\n"};
+static const char* resp_header[3]={"HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\nServer: 2.0\r\n\r\n","HTTP/1.1 200 OK\r\nContent-Type: image/jpeg\r\n\r\n","HTTP/1.1 404 Not Found\r\nContent-Type: image/jpeg\r\n\r\n"};
 
 unsigned long fsize(char * file);
 bool parse(char*,struct http_format*);
