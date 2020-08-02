@@ -20,16 +20,16 @@ jobs:
     - name: make
       run: |
         make
-    - name: run
+    - name: run_server_up
       run: |
         ./webserver_fork 8080 &
-    - name: dokcerPull
+    - name: run_zap
       run: |
         docker pull owasp/zap2docker-weekly
     - name: dockerCompose
       run: |
         ./docker.sh
-    - name: cat
+    - name: filter
       run: |    
         cat testreport.html
               #docker-compose -f .github/actions/container/DAST/docker-compose_1.yml up --build --exit-code-from zap
