@@ -1,7 +1,7 @@
 name: che's c/c++ CD
 
 on:
-  pull_request:
+  push:
     branches: [ master ]
 
 jobs:
