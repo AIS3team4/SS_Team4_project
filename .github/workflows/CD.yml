@@ -26,10 +26,10 @@ jobs:
     - name: run_zap
       run: |
         docker pull owasp/zap2docker-weekly
-    - name: dockerCompose
+    - name: filter
       run: |
         ./docker.sh
-    - name: filter
+    - name: cat
       run: |    
         cat testreport.html
               #docker-compose -f .github/actions/container/DAST/docker-compose_1.yml up --build --exit-code-from zap
